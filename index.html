@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遊漁船 大和（ヤマト）｜淡路島 育波港 釣り船｜タコ・真鯛・青物</title>
+<meta name="description" content="淡路島 育波港の釣り船「大和（ヤマト）」。少人数でもアットホームに楽しめる遊漁船。タコ・真鯛・青物。出船スケジュール・料金・ご予約はこちら。">
+
+<!-- ============================================================
+  出船スケジュール（Googleカレンダー）の貼り付け場所は
+  下のほうの【出船スケジュール】セクションにあります。
+  「CALENDAR_SRC ここに貼る」というコメントを目印にしてください。
+============================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kon: #0a2540;        /* 深い紺 */
+    --kon-2: #103a5c;      /* 海の紺 */
+    --umi: #1d6fa3;        /* 海の青 */
+    --umi-akarui: #2f93c9; /* 明るい青 */
+    --suna: #f6f0e2;       /* 砂・生成り */
+    --suna-2: #efe6d2;
+    --shu: #d8493a;        /* 朱（差し色） */
+    --kin: #c9a24b;        /* 金 */
+    --sumi: #1a1f24;
+    --line: #06c755;       /* LINE緑 */
+    --mincho: "Shippori Mincho B1", serif;
+    --gothic: "Zen Kaku Gothic New", sans-serif;
+    --maxw: 1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--gothic);
+    color:var(--sumi);
+    background:var(--suna);
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ===== ヘッダー ===== */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(10,37,64,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(201,162,75,0.35);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 20px;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;color:var(--suna);}
+  .brand .mark{
+    width:46px;height:46px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--umi-akarui), var(--kon));
+    border:2px solid var(--kin);
+    display:grid;place-items:center;
+    font-family:var(--mincho);font-weight:800;font-size:1.3rem;color:var(--suna);
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+  }
+  .brand .name{font-family:var(--mincho);font-weight:800;font-size:1.35rem;letter-spacing:.08em;}
+  .brand .sub{font-size:.7rem;letter-spacing:.18em;color:var(--kin);display:block;}
+  nav ul{list-style:none;display:flex;gap:22px;}
+  nav a{color:var(--suna);font-size:.92rem;font-weight:500;position:relative;padding:4px 0;}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--kin);transition:.3s;}
+  nav a:hover::after{width:100%;}
+  .nav-tel{display:flex;align-items:center;gap:8px;}
+  .nav-tel a{
+    background:var(--shu);color:#fff;font-weight:700;
+    padding:9px 16px;border-radius:999px;font-size:.92rem;
+    box-shadow:0 4px 12px rgba(216,73,58,.4);transition:.2s;
+  }
+  .nav-tel a:hover{transform:translateY(-2px);}
+  .menu-btn{display:none;background:none;border:none;color:var(--suna);font-size:1.6rem;cursor:pointer;}
+
+  /* ===== ヒーロー ===== */
+  .hero{
+    position:relative;min-height:70vh;display:grid;place-items:center;
+    color:var(--suna);text-align:center;overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(8,26,46,.60) 0%, rgba(16,69,110,.38) 48%, rgba(6,26,46,.72) 100%),
+      url('yamato-hero.png') center 30%/cover no-repeat;
+  }
+  .hero .waves{position:absolute;inset:0;opacity:.5;}
+  .hero .sun{
+    position:absolute;top:14%;left:50%;transform:translateX(-50%);
+    width:160px;height:160px;border-radius:50%;
+    background:radial-gradient(circle, #ffe9b0 0%, #f4c04e 55%, rgba(244,192,78,0) 72%);
+    filter:blur(2px);opacity:.9;
+  }
+  .hero-content{position:relative;z-index:2;padding:0 20px;animation:fadeUp 1.1s ease both;}
+  .hero .lead{font-size:.95rem;letter-spacing:.35em;color:var(--kin);margin-bottom:18px;}
+  .hero h1{
+    font-family:var(--mincho);font-weight:800;
+    font-size:clamp(3.2rem,11vw,7rem);letter-spacing:.12em;line-height:1.1;
+    text-shadow:0 6px 30px rgba(0,0,0,.45);
+  }
+  .hero h1 small{display:block;font-size:.22em;letter-spacing:.5em;color:var(--suna);margin-top:6px;font-weight:500;}
+  .hero .copy{margin-top:26px;font-size:clamp(1rem,3.5vw,1.35rem);font-weight:500;}
+  .hero .tags{margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .hero .tags span{
+    border:1px solid var(--kin);border-radius:999px;
+    padding:6px 18px;font-size:.9rem;letter-spacing:.1em;
+    background:rgba(255,255,255,.06);
+  }
+  .hero-cta{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;border-radius:999px;font-weight:700;font-size:1.02rem;
+    transition:.25s;letter-spacing:.05em;
+  }
+  .btn-tel{background:var(--shu);color:#fff;box-shadow:0 8px 22px rgba(216,73,58,.45);}
+  .btn-line{background:var(--line);color:#fff;box-shadow:0 8px 22px rgba(6,199,85,.4);}
+  .btn:hover{transform:translateY(-3px);}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ===== ページメニューバー ===== */
+  .page-menu{
+    display:block;
+    background:var(--kon);
+    border-top:2px solid var(--kin);
+    border-bottom:2px solid var(--kin);
+    box-shadow:0 4px 14px rgba(0,0,0,.2);
+  }
+  .page-menu .menu-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;overflow-x:auto;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .page-menu .menu-inner::-webkit-scrollbar{display:none;}
+  .page-menu a{
+    flex:1 0 auto;padding:18px 24px;
+    color:var(--suna);font-size:1rem;font-weight:600;
+    letter-spacing:.08em;text-align:center;white-space:nowrap;
+    border-right:1px solid rgba(201,162,75,.2);
+    position:relative;transition:.25s;
+  }
+  .page-menu a:last-child{border-right:none;}
+  .page-menu a::after{
+    content:"";position:absolute;left:50%;bottom:6px;
+    width:0;height:2px;background:var(--kin);
+    transform:translateX(-50%);transition:.3s;
+  }
+  .page-menu a:hover{color:var(--kin);background:rgba(201,162,75,.08);}
+  .page-menu a:hover::after{width:40%;}
+
+  /* ===== 共通セクション ===== */
+  section{padding:84px 20px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .sec-head{text-align:center;margin-bottom:54px;}
+  .sec-head .en{display:block;font-size:.8rem;letter-spacing:.4em;color:var(--umi);margin-bottom:10px;font-weight:700;}
+  .sec-head h2{
+    font-family:var(--mincho);font-weight:800;
+    font-size:clamp(1.8rem,5vw,2.6rem);color:var(--kon);letter-spacing:.08em;
+    position:relative;display:inline-block;
+  }
+  .sec-head h2::after{
+    content:"";display:block;width:54px;height:3px;background:var(--shu);
+    margin:16px auto 0;border-radius:2px;
+  }
+
+  /* 紹介 */
+  .intro{background:var(--suna);}
+  .intro-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:46px;align-items:center;}
+  .intro-photo{
+    position:relative;border-radius:18px;overflow:hidden;min-height:340px;
+    background:linear-gradient(135deg,#10456e,#2f93c9);
+    display:grid;place-items:center;color:rgba(255,255,255,.85);
+    box-shadow:0 18px 40px rgba(10,37,64,.25);
+  }
+  .intro-photo .ph{text-align:center;font-size:.85rem;letter-spacing:.1em;}
+  .intro-photo .ph .boat{font-size:3.4rem;margin-bottom:8px;}
+  .intro-text h3{font-family:var(--mincho);font-size:1.7rem;color:var(--kon);margin-bottom:8px;letter-spacing:.06em;}
+  .intro-text .since{color:var(--shu);font-weight:700;font-size:.95rem;margin-bottom:18px;}
+  .intro-text p{margin-bottom:16px;}
+  .spec{list-style:none;border-top:1px solid var(--suna-2);margin-top:18px;}
+  .spec li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--suna-2);font-size:.95rem;}
+  .spec li b{color:var(--umi);min-width:84px;font-weight:700;}
+
+  /* 魅力 */
+  .charm{background:linear-gradient(180deg,#10456e,#0a2540);color:var(--suna);}
+  .charm .sec-head h2{color:var(--suna);}
+  .charm .sec-head .en{color:var(--kin);}
+  .charm .sec-head h2::after{background:var(--kin);}
+  .charm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .charm-card{
+    background:rgba(255,255,255,.05);border:1px solid rgba(201,162,75,.3);
+    border-radius:16px;padding:34px 26px;text-align:center;transition:.3s;
+  }
+  .charm-card:hover{transform:translateY(-6px);border-color:var(--kin);background:rgba(255,255,255,.09);}
+  .charm-card .num{font-family:var(--mincho);font-size:2.4rem;color:var(--kin);font-weight:800;}
+  .charm-card h4{font-size:1.2rem;margin:10px 0 12px;font-weight:700;letter-spacing:.04em;}
+  .charm-card p{font-size:.92rem;color:rgba(255,255,255,.85);}
+
+  /* 料金 */
+  .price{background:var(--suna-2);}
+  .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .price-card{
+    background:#fff;border-radius:14px;padding:26px 28px;
+    box-shadow:0 12px 30px rgba(10,37,64,.10);
+  }
+  .price-card .ptype{
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+    margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid var(--kon);
+  }
+  .price-card .ptype .kind{
+    font-family:var(--mincho);font-weight:800;font-size:1.4rem;
+    color:var(--kon);letter-spacing:.06em;
+  }
+  .price-card .ptype .when{font-weight:700;color:var(--shu);}
+  .price-card .ptype .time{color:#888;font-size:.85rem;}
+  .price-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:12px 0;border-bottom:1px solid var(--suna-2);
+  }
+  .price-row:last-child{border-bottom:none;}
+  .price-row .label{color:#333;}
+  .price-row .yen{
+    font-family:var(--mincho);font-weight:800;font-size:1.7rem;
+    color:var(--kon);letter-spacing:.02em;
+  }
+  .price-card.shitate .main-yen{
+    text-align:center;padding:14px 0 8px;
+  }
+  .price-card.shitate .main-yen .label{
+    display:block;color:#555;font-size:.95rem;margin-bottom:6px;
+  }
+  .price-card.shitate .main-yen .num{
+    font-family:var(--mincho);font-weight:800;font-size:2.2rem;
+    color:var(--kon);letter-spacing:.02em;
+  }
+  .price-card.shitate .extra{
+    margin-top:14px;text-align:center;background:var(--suna-2);
+    padding:10px;border-radius:8px;font-size:.9rem;color:#555;
+  }
+  .price-divider{
+    text-align:center;margin:30px 0;color:#555;font-size:.95rem;letter-spacing:.04em;
+  }
+  .price-divider b{font-family:var(--mincho);font-weight:700;color:var(--kon);}
+
+  /* スケジュール（カレンダー） */
+  .schedule{background:var(--suna);}
+  .cal-wrap{
+    background:#fff;border-radius:18px;padding:18px;
+    box-shadow:0 14px 36px rgba(10,37,64,.12);
+  }
+  .cal-frame{
+    position:relative;width:100%;border-radius:12px;overflow:hidden;
+    aspect-ratio:16/10;background:#eef3f6;
+  }
+  .cal-frame iframe{width:100%;height:100%;border:0;display:block;}
+  /* カレンダー未設定時に表示する案内（設定後は消してOK） */
+  .cal-placeholder{
+    position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+    background:linear-gradient(135deg,#eaf2f7,#dceaf2);color:var(--kon);padding:30px;
+  }
+  .cal-placeholder .ic{font-size:3rem;margin-bottom:12px;}
+  .cal-placeholder h4{font-family:var(--mincho);font-size:1.3rem;margin-bottom:8px;}
+  .cal-placeholder p{font-size:.9rem;color:#456;}
+  .cal-help{
+    margin-top:16px;font-size:.82rem;color:#a06b2a;
+    background:#fff7e6;border:1px dashed var(--kin);border-radius:10px;padding:12px 14px;
+  }
+  .cal-legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:18px;font-size:.86rem;}
+  .cal-legend span{display:flex;align-items:center;gap:6px;}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block;}
+
+  /* 釣果 */
+  .catch{background:linear-gradient(180deg,#0a2540,#10456e);color:var(--suna);}
+  .catch .sec-head h2{color:var(--suna);}
+  .catch .sec-head .en{color:var(--kin);}
+  .catch .sec-head h2::after{background:var(--kin);}
+  .catch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .catch-grid .item{
+    aspect-ratio:1;border-radius:12px;overflow:hidden;
+    background:rgba(255,255,255,.06);border:1px solid rgba(201,162,75,.25);
+    display:grid;place-items:center;color:rgba(255,255,255,.55);font-size:.8rem;
+  }
+  .catch-grid .item .fish{font-size:2rem;}
+  .catch .insta{text-align:center;margin-top:30px;}
+  .catch .insta a{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid var(--kin);border-radius:999px;padding:12px 26px;
+    color:var(--suna);font-weight:600;transition:.25s;
+  }
+  .catch .insta a:hover{background:var(--kin);color:var(--kon);}
+
+  /* アクセス */
+  .access{background:var(--suna-2);}
+  .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch;}
+  .access-info{background:#fff;border-radius:16px;padding:34px;box-shadow:0 10px 28px rgba(10,37,64,.1);}
+  .access-info h3{font-family:var(--mincho);font-size:1.4rem;color:var(--kon);margin-bottom:18px;}
+  .access-info dl{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;}
+  .access-info dt{color:var(--umi);font-weight:700;}
+  .access-map{border-radius:16px;overflow:hidden;min-height:320px;box-shadow:0 10px 28px rgba(10,37,64,.1);}
+  .access-map iframe{width:100%;height:100%;min-height:320px;border:0;display:block;}
+
+  /* お問い合わせCTA */
+  .contact{background:var(--kon);color:var(--suna);text-align:center;}
+  .contact h2{font-family:var(--mincho);font-size:clamp(1.8rem,5vw,2.4rem);letter-spacing:.08em;}
+  .contact p{margin:18px 0 30px;color:rgba(255,255,255,.85);}
+  .contact .big-tel{font-family:var(--mincho);font-size:clamp(2rem,8vw,3rem);color:var(--kin);font-weight:800;letter-spacing:.05em;display:inline-block;margin-bottom:6px;}
+  .contact .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+
+  /* フッター */
+  footer{background:#061a2e;color:rgba(255,255,255,.7);padding:46px 20px 28px;text-align:center;}
+  footer .fbrand{font-family:var(--mincho);font-size:1.5rem;color:var(--suna);letter-spacing:.1em;margin-bottom:10px;}
+  footer .fnav{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:18px 0;font-size:.88rem;}
+  footer .fnav a:hover{color:var(--kin);}
+  footer .socials{display:flex;gap:16px;justify-content:center;margin:18px 0;}
+  footer .socials a{padding:8px 20px;border-radius:999px;border:1px solid rgba(201,162,75,.4);display:inline-flex;align-items:center;font-size:.85rem;letter-spacing:.06em;transition:.25s;}
+  footer .socials a:hover{background:var(--kin);color:var(--kon);}
+  footer .copy{font-size:.78rem;margin-top:16px;color:rgba(255,255,255,.45);}
+  footer .copy b{color:var(--kin);font-weight:700;}
+
+  /* レスポンシブ */
+  @media(max-width:860px){
+    nav,.nav-tel{display:none;}
+    .menu-btn{display:block;}
+    .intro-grid,.access-grid{grid-template-columns:1fr;}
+    .charm-grid{grid-template-columns:1fr;}
+    .catch-grid{grid-template-columns:repeat(2,1fr);}
+    .price-cards{grid-template-columns:1fr;}
+    nav.open{display:block;position:absolute;top:70px;left:0;right:0;background:var(--kon);padding:16px 20px;}
+    nav.open ul{flex-direction:column;gap:14px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== ヘッダー ===== -->
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="mark">大</span>
+      <span>
+        <span class="sub">AWAJI IKUHA PORT</span>
+        <span class="name">遊漁船 大和</span>
+      </span>
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#intro">大和について</a></li>
+        <li><a href="#charm">魅力</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#schedule">出船スケジュール</a></li>
+        <li><a href="#catch">釣果</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </nav>
+    <div class="nav-tel">
+      <a href="tel:08024037523">080-2403-7523</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー"></button>
+  </div>
+</header>
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero" id="top" style="padding-top:0;padding-bottom:0;">
+  <div class="hero-content">
+    <p class="lead">淡路島 育波港 釣り船</p>
+    <h1>大和<small>Y A M A T O</small></h1>
+    <p class="copy">少人数でも大歓迎。お仲間内で和気あいあいと、<br>淡路の海で釣りを楽しみませんか。</p>
+    <div class="hero-cta">
+      <a class="btn btn-tel" href="tel:08024037523">電話でご予約</a>
+      <a class="btn btn-line" href="https://line.me/ti/p/KQKO0bSJTl" target="_blank" rel="noopener">LINEで相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ページメニューバー ===== -->
+<nav class="page-menu">
+  <div class="menu-inner">
+    <a href="#intro">大和について</a>
+    <a href="#charm">魅力</a>
+    <a href="#price">料金</a>
+    <a href="#schedule">出船スケジュール</a>
+    <a href="#catch">釣果</a>
+    <a href="#access">アクセス</a>
+    <a href="#contact">ご予約</a>
+  </div>
+</nav>
+
+<!-- ===== 大和のご紹介 ===== -->
+<section class="intro" id="intro">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">ABOUT</span>
+      <h2>大和のご紹介</h2>
+    </div>
+    <div class="intro-grid">
+      <div class="intro-photo">
+        <!-- 船の写真をここに入れる場合：この div を <img src="boat.jpg" alt="遊漁船 大和"> に差し替え -->
+        <div class="ph"><div class="boat">YAMATO</div>船の写真をここに掲載できます</div>
+      </div>
+      <div class="intro-text">
+        <h3>釣り船　大和（ヤマト）</h3>
+        <p class="since">2022年5月デビュー！　可愛がってやってください。</p>
+        <p>少人数でも大歓迎の釣り船「大和」です。アットホームなサイズの船内で、お仲間内と和気あいあいと釣りを楽しむのに最適なサイズとなっています。</p>
+        <p>トイレもきれいに保っており、女性やお子様でも安心してご利用いただけます。</p>
+        <ul class="spec">
+          <li><b>出港地</b><span>兵庫県淡路市育波２５２１（育波港）</span></li>
+          <li><b>対象魚</b><span>タコ・真鯛・青物　ほか</span></li>
+          <li><b>定員</b><span>少人数〜（詳しくは船長まで）</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 魅力 ===== -->
+<section class="charm" id="charm">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">WHY YAMATO</span>
+      <h2>大和の魅力</h2>
+    </div>
+    <div class="charm-grid">
+      <div class="charm-card">
+        <div class="num">01</div>
+        <h4>少人数でも大歓迎</h4>
+        <p>お一人様やご家族、お仲間内の少人数でも気軽にご乗船いただけます。</p>
+      </div>
+      <div class="charm-card">
+        <div class="num">02</div>
+        <h4>アットホームな船内</h4>
+        <p>お仲間内で釣りを楽しむのに最適なサイズ。和気あいあいとした雰囲気が自慢です。</p>
+      </div>
+      <div class="charm-card">
+        <div class="num">03</div>
+        <h4>トイレがきれい</h4>
+        <p>女性・お子様でも安心してご利用いただけるよう、清潔を心がけています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 料金 ===== -->
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">PRICE</span>
+      <h2>料金案内</h2>
+    </div>
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="ptype">
+          <span class="kind">乗合船</span>
+          <span class="when">午前中の便</span>
+          <span class="time">（朝6:00頃〜）</span>
+        </div>
+        <div class="price-row">
+          <span class="label">大人1名様</span>
+          <span class="yen">8,000円</span>
+        </div>
+        <div class="price-row">
+          <span class="label">小・中学生1名様</span>
+          <span class="yen">6,000円</span>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="ptype">
+          <span class="kind">乗合船</span>
+          <span class="when">午後の便</span>
+          <span class="time">（12:30頃〜）</span>
+        </div>
+        <div class="price-row">
+          <span class="label">大人1名様</span>
+          <span class="yen">7,000円</span>
+        </div>
+        <div class="price-row">
+          <span class="label">小・中学生1名様</span>
+          <span class="yen">5,000円</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="price-divider">※2022年5月デビュー「<b>大和</b>」料金（全て消費税込表記）</p>
+
+    <div class="price-cards">
+      <div class="price-card shitate">
+        <div class="ptype">
+          <span class="kind">仕立船</span>
+          <span class="when">午前中の便</span>
+          <span class="time">（朝6:00頃〜）</span>
+        </div>
+        <div class="main-yen">
+          <span class="label">6名様まで</span>
+          <span class="num">50,000円</span>
+        </div>
+        <div class="extra">1名様増える毎に ＋8,000円</div>
+      </div>
+      <div class="price-card shitate">
+        <div class="ptype">
+          <span class="kind">仕立船</span>
+          <span class="when">午後の便</span>
+          <span class="time">（12:30頃〜）</span>
+        </div>
+        <div class="main-yen">
+          <span class="label">6名様まで</span>
+          <span class="num">40,000円</span>
+        </div>
+        <div class="extra">1名様増える毎に ＋7,000円</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 出船スケジュール（Googleカレンダー） ===== -->
+<section class="schedule" id="schedule">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">SCHEDULE</span>
+      <h2>出船スケジュール</h2>
+    </div>
+    <div class="cal-wrap">
+      <div class="cal-frame">
+
+        <!-- ============================================================
+          ▼▼▼ Googleカレンダーの貼り付け場所 ▼▼▼
+          1. Googleカレンダーの「設定」→「カレンダーの統合」を開く
+          2. 「埋め込みコード」の <iframe ... src="..."> の src の中身をコピー
+          3. 下の iframe の src="" の "" の中に貼り付ける
+          4. 貼り付けたら、すぐ下の cal-placeholder の div を消す（または残してもOK）
+          ※カズマに頼んでもらえば、レムが書き込みまでやります
+        ============================================================= -->
+        <iframe
+          title="大和 出船スケジュール"
+          src=""
+          loading="lazy">
+        </iframe>
+        <!-- CALENDAR_SRC ここに貼る -->
+
+        <!-- カレンダー未設定時の案内（設定後は消してOK） -->
+        <div class="cal-placeholder">
+          <div>
+            <h4>Googleカレンダー設置スペース</h4>
+            <p>ここに出船スケジュールのGoogleカレンダーが表示されます。</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="cal-legend">
+        <span><i class="dot" style="background:#1d6fa3;"></i>出船予定</span>
+        <span><i class="dot" style="background:#d8493a;"></i>満船・受付終了</span>
+        <span><i class="dot" style="background:#c9a24b;"></i>空きあり</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 釣果 ===== -->
+<section class="catch" id="catch">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">CATCH REPORT</span>
+      <h2>最新釣果情報</h2>
+    </div>
+    <div class="catch-grid">
+      <div class="item"><div>釣果写真 01</div></div>
+      <div class="item"><div>釣果写真 02</div></div>
+      <div class="item"><div>釣果写真 03</div></div>
+      <div class="item"><div>釣果写真 04</div></div>
+      <div class="item"><div>釣果写真 05</div></div>
+      <div class="item"><div>釣果写真 06</div></div>
+      <div class="item"><div>釣果写真 07</div></div>
+      <div class="item"><div>釣果写真 08</div></div>
+    </div>
+    <div class="insta">
+      <a href="https://www.instagram.com/awj07yamato/" target="_blank" rel="noopener">Instagramで最新釣果を見る @awj07yamato</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== アクセス ===== -->
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">ACCESS</span>
+      <h2>アクセス</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-info">
+        <h3>育波港（いくはこう）</h3>
+        <dl>
+          <dt>住所</dt><dd>兵庫県淡路市育波２５２１</dd>
+          <dt>電話</dt><dd><a href="tel:08024037523">080-2403-7523</a></dd>
+          <dt>LINE</dt><dd><a href="https://line.me/ti/p/KQKO0bSJTl" target="_blank" rel="noopener">LINEで友だち追加・ご相談</a></dd>
+          <dt>SNS</dt><dd><a href="https://www.instagram.com/awj07yamato/" target="_blank" rel="noopener">Instagram @awj07yamato</a></dd>
+        </dl>
+      </div>
+      <div class="access-map">
+        <iframe
+          title="育波港 地図"
+          src="https://maps.google.com/maps?q=%E5%85%B5%E5%BA%AB%E7%9C%8C%E6%B7%A1%E8%B7%AF%E5%B8%82%E8%82%B2%E6%B3%A22521&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== お問い合わせ ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>ご予約・お問い合わせ</h2>
+    <p>空き状況やご相談は、お電話・LINEでお気軽にどうぞ。</p>
+    <div>
+      <a class="big-tel" href="tel:08024037523">080-2403-7523</a>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-tel" href="tel:08024037523">電話でご予約</a>
+      <a class="btn btn-line" href="https://line.me/ti/p/KQKO0bSJTl" target="_blank" rel="noopener">LINEで相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer>
+  <div class="fbrand">遊漁船 大和</div>
+  <div>淡路島 育波港｜兵庫県淡路市育波２５２１</div>
+  <div class="socials">
+    <a href="https://www.instagram.com/awj07yamato/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://line.me/ti/p/KQKO0bSJTl" target="_blank" rel="noopener">LINE</a>
+    <a href="tel:08024037523">電話</a>
+  </div>
+  <div class="copy">&copy; 2026 遊漁船 大和. ／ produced by <b>YTS Products</b></div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    // モバイルメニュー開閉
+    var menuBtn = document.getElementById('menuBtn');
+    var nav = document.getElementById('nav');
+    if(menuBtn && nav){
+      menuBtn.addEventListener('click', function(){
+        nav.classList.toggle('open');
+      });
+      nav.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){ nav.classList.remove('open'); }
+      });
+    }
+
+    // カレンダーのsrcが入っていたら、案内プレースホルダーを自動で隠す
+    var iframe = document.querySelector('.cal-frame iframe');
+    var placeholder = document.querySelector('.cal-placeholder');
+    if(iframe && placeholder && iframe.getAttribute('src')){
+      placeholder.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
